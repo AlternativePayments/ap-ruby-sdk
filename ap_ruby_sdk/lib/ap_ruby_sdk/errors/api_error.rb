@@ -1,6 +1,4 @@
 module ApRubySdk
-  module Errors
-    class APIError < ApError
-    end
+  class APIError < ApError
   end
 end

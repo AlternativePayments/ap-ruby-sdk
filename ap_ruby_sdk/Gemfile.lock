@@ -15,6 +15,7 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     mime-types (2.99.1)
+    minitest (5.4.3)
     multi_json (1.12.0)
     netrc (0.11.0)
     rake (10.4.2)
@@ -37,6 +38,7 @@ PLATFORMS
 DEPENDENCIES
   ap_ruby_sdk!
   bundler (~> 1.8)
+  minitest
   multi_json
   rake (~> 10.0)
   rest-client

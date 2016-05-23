@@ -3,9 +3,9 @@ module ApRubySdk
     module Retrieve
 
       module ClassMethods
-        # TODO implement retrieve with refresh operations if needed. Sometimes is needed if we want to refresh state of object already loaded
-        def retrieve
-
+        def retrieve(api_key=nil, retrieve_options={})
+          response = ApRubySdk.request(:get, self.url, api_key, retrieve_options)
+          Util.convert_to_ap_object(response, self.url)
         end
       end
 

@@ -1,5 +1,25 @@
 module ApRubySdk
   module Util
+    def self.symbolize_names(object)
+      case object
+        when Hash
+          new = {}
+          object.each do |key, value|
+            key = (key.to_sym rescue key) || key
+            new[key] = symbolize_names(value)
+          end
+          new
+        when Array
+          object.map { |value| symbolize_names(value) }
+        else
+          object
+      end
+    end
+
+    def self.url_encode(key)
+      URI.escape(key.to_s, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+    end
+
     def self.flatten_params(params, parent_key=nil)
       result = []
       params.each do |key, value|
@@ -28,25 +48,23 @@ module ApRubySdk
       end
       result
     end
-  end
 
-  def self.symbolize_names(object)
-    case object
-      when Hash
-        new = {}
-        object.each do |key, value|
-          key = (key.to_sym rescue key) || key
-          new[key] = symbolize_names(value)
-        end
-        new
-      when Array
-        object.map { |value| symbolize_names(value) }
-      else
-        object
+    def self.convert_to_ap_object(response, url)
+      case response
+        when Array
+          response.map { |object| convert_to_ap_object(object, url) }
+        when Hash
+          object_classes.fetch(url, ApiResource).construct_object(response)
+        else
+          response
+      end
     end
-  end
 
-  def convert_to_ap_object(response)
-    # TODO do conversion to AP objects
+
+    def self.object_classes
+      @object_classes ||= {
+          '/customers' => Customer
+      }
+    end
   end
 end

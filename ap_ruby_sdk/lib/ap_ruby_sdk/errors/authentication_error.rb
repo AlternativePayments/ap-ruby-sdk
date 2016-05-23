@@ -1,6 +1,4 @@
 module ApRubySdk
-  module Errors
-    class AuthenticationError < ApError
-    end
+  class AuthenticationError < ApError
   end
 end
