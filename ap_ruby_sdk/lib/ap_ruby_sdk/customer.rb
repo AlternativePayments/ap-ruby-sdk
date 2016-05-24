@@ -1,6 +1,8 @@
 module ApRubySdk
   class Customer < ApiResource
     include ApRubySdk::ApiOperations::Create
+    include ApRubySdk::ApiOperations::List
+    include ApRubySdk::ApiOperations::Retrieve
 
     attr_accessor :firstName,
                   :lastName,
@@ -12,12 +14,12 @@ module ApRubySdk
                   :state,
                   :phone
 
-    def payment(payment)
-      @payment = Payment.new(payment)
-    end
-
     def self.url
       '/customers'
+    end
+
+    def self.list_members
+      :customers
     end
   end
 end

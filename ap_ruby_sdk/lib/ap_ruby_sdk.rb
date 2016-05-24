@@ -104,26 +104,26 @@ module ApRubySdk
                            "(HTTP response code was #{response_code})", response_code)
   end
 
-  def parse_api_error(response_code, response_body)
+  def self.parse_api_error(response_code, response_body)
     begin
       error = MultiJson.load(response_body)
       error = Util.symbolize_names(error)
 
-      raise ApError.new if error[:type].nil? # if there is no type
+      raise ApError.new if error[:Type].nil? # if there is no type
 
     rescue MultiJson::DecodeError, ApError
       raise_general_error(response_code, response_body)
     end
 
-    case error[:type]
+    case error[:Type]
       when 'payment_error'
-        raise PaymentError.new(error[:message], response_code, error[:code])
+        raise PaymentError.new(error[:Message], response_code, error[:Code])
       when 'api_error'
-        raise APIError.new(error[:message], response_code, error[:code])
+        raise APIError.new(error[:Message], response_code, error[:Code])
       when 'invalid_parameter_error'
-        raise InvalidParameterError.new(error[:message], response_code, error[:code], error[:parameter])
+        raise InvalidParameterError.new(error[:Message], response_code, error[:Code], error[:Param])
       else
-        raise APIError.new(error[:message], response_code, error[:code]);
+        raise APIError.new(error[:Message], response_code, error[:Code]);
     end
   end
 end
