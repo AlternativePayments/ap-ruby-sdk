@@ -63,7 +63,8 @@ module ApRubySdk
 
     def self.object_classes
       @object_classes ||= {
-          '/customers' => Customer
+          '/customers' => Customer,
+          '/transactions' => Transaction
       }
     end
   end
