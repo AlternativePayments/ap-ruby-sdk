@@ -2,4 +2,4 @@ before_script: cd ap_ruby_sdk
 
 language: ruby
 rvm:
-  - 2.2
+  - 2.2.1
