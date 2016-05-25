@@ -22,7 +22,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 402, :body => MultiJson.dump(
                                       {
@@ -49,7 +49,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 402, :body => MultiJson.dump(
                                       {
@@ -76,7 +76,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 402, :body => MultiJson.dump(
                                       {
@@ -103,7 +103,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 400, :body => MultiJson.dump(
                                       {
@@ -130,7 +130,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 402, :body => MultiJson.dump(
                                       {
@@ -157,7 +157,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 402, :body => MultiJson.dump(
                                       {
@@ -184,7 +184,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 404, :body => MultiJson.dump(
                                       {
@@ -211,7 +211,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 500, :body => MultiJson.dump(
                                       {
@@ -238,7 +238,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 400, :body => MultiJson.dump(
                                       {
@@ -267,7 +267,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 401, :body => MultiJson.dump(
                                       {
@@ -296,7 +296,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 400, :body => MultiJson.dump(
                                       {
@@ -325,7 +325,7 @@ class ErrorHandlingTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 503, :body => MultiJson.dump(
                                       {

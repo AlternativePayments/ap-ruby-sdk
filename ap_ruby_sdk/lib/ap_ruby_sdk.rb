@@ -1,4 +1,3 @@
-require 'ap_ruby_sdk/version'
 require 'base64'
 require 'rest_client'
 require 'multi_json'
@@ -83,6 +82,7 @@ module ApRubySdk
 
   def self.request_headers(api_key)
     {
+        :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}",
         :authorization => "Basic #{Base64.encode64(api_key)}",
         :content_type => 'application/json'
     }

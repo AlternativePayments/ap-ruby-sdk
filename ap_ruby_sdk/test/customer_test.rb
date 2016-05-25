@@ -13,7 +13,7 @@ class CustomerTest < Minitest::Test
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
                 :content_length => '213',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 200, :body => MultiJson.dump(
                                       {
@@ -70,7 +70,7 @@ class CustomerTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 200, :body => MultiJson.dump(
                                       {
@@ -145,7 +145,7 @@ class CustomerTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 200, :body => MultiJson.dump(
                                       {
@@ -188,7 +188,7 @@ class CustomerTest < Minitest::Test
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :user_agent => 'Ruby'
+                :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 200, :body => MultiJson.dump(
                                       {

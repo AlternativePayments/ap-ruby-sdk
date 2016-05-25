@@ -2,11 +2,9 @@ module ApRubySdk
   class BaseModel
     attr_accessor :id,
                   :created,
-                  :updated,
-                  :version
+                  :updated
 
     def initialize(attributes={})
-      @version = ApRubySdk::VERSION
       self.attributes = attributes
     end
 

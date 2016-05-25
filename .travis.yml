@@ -1,4 +1,4 @@
-before_script: cd ap_ruby_sdk
+before_install: cd ap_ruby_sdk
 
 language: ruby
 rvm:
