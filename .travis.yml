@@ -1,0 +1,5 @@
+before_install: cd ap_ruby_sdk
+
+language: ruby
+rvm:
+  - 2.2.1
