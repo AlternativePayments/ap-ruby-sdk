@@ -48,7 +48,7 @@ module ApRubySdk
       # Make params into expected PUT params
     else
       # Make params into POST params
-      payload = uri_encode(params)
+      payload = MultiJson.dump(params)
     end
 
     request_opts = {
