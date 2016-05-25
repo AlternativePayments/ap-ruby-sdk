@@ -15,7 +15,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_payment_error_void_not_supported
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -42,7 +42,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_payment_error_refund_not_supported
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -69,7 +69,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_payment_error_customer_older_than_16
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -96,7 +96,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_payment_error_bank_unknown
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -123,7 +123,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_api_error
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -150,7 +150,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_acquirer_down
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -177,7 +177,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_not_found
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -204,7 +204,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_internal_server_error
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -231,7 +231,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_invalid_object_sent
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -260,7 +260,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_invalid_api_keys
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -289,7 +289,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_information_on_black_list
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -318,7 +318,7 @@ class ErrorHandlingTest < Minitest::Test
   end
 
   def test_payment_option_is_not_active
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
