@@ -17,7 +17,6 @@ require 'ap_ruby_sdk/errors/payment_error'
 require 'ap_ruby_sdk/api_operations/create'
 require 'ap_ruby_sdk/api_operations/list'
 require 'ap_ruby_sdk/api_operations/retrieve'
-# TODO investigate if delete is needed (eg. canceling subscription) or update (eg. change user email)
 
 # AP Resources
 require 'ap_ruby_sdk/util'
@@ -40,9 +39,13 @@ module ApRubySdk
     url = api_url(url)
 
     if method.to_s.downcase.to_sym == :get
-      # Make params into GET parameters
+      # Make params into GET params
       url += "#{URI.parse(url).query ? '&' : '?'}#{uri_encode(params)}" if params && params.any?
       payload = nil
+    elsif method.to_s.downcase.to_sym == :delete
+      # Make params into expected DELETE params
+    elsif method.to_s.downcase.to_sym == :put
+      # Make params into expected PUT params
     else
       # Make params into POST params
       payload = uri_encode(params)
