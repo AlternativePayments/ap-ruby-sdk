@@ -5,14 +5,25 @@ class CustomerTest < Minitest::Test
   def test_create_customer
     stub_request(:post, 'https://api.alternaativepayments.com/api/customers').
         with(
-            body:
-                "id=cus_bd838e3611d34d598&mode=Live&firstName=John&lastName=Doe&email=john%40doe.com&address=Rutledge%20Ave%20409&city=Folsom&zip=19033&country=US&state=PA&phone=55555555555&created=2016-03-24T15%3A19%3A10.7800694Z",
+            body: '{'\
+                    '"id":"cus_bd838e3611d34d598",'\
+                    '"mode":"Live",'\
+                    '"firstName":"John",'\
+                    '"lastName":"Doe",'\
+                    '"email":"john@doe.com",'\
+                    '"address":"Rutledge Ave 409",'\
+                    '"city":"Folsom",'\
+                    '"zip":"19033",'\
+                    '"country":"US",'\
+                    '"state":"PA",'\
+                    '"phone":"55555555555",'\
+                    '"created":"2016-03-24T15:19:10.7800694Z"'\
+                '}',
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
                 :content_type => 'application/json',
                 :accept => '*/*; q=0.5, application/xml',
                 :accept_encoding => 'gzip, deflate',
-                :content_length => '213',
                 :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}"
             }
         ).to_return(:status => 200, :body => MultiJson.dump(
