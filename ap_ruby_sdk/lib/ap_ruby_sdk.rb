@@ -22,6 +22,7 @@ require 'ap_ruby_sdk/util'
 require 'ap_ruby_sdk/base_model'
 require 'ap_ruby_sdk/api_resource'
 require 'ap_ruby_sdk/customer'
+require 'ap_ruby_sdk/payment'
 
 module ApRubySdk
   @api_base = 'https://api.alternaativepayments.com/api'
