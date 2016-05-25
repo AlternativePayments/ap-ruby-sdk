@@ -3,7 +3,7 @@ require 'test_helper'
 class CustomerTest < Minitest::Test
 
   def test_create_customer
-    stub_request(:post, 'https://api.alternaativepayments.com/api/customers').
+    stub_request(:post, 'https://api.alternativepayments.com/api/customers').
         with(
             body:
                 "id=cus_bd838e3611d34d598&mode=Live&firstName=John&lastName=Doe&email=john%40doe.com&address=Rutledge%20Ave%20409&city=Folsom&zip=19033&country=US&state=PA&phone=55555555555&created=2016-03-24T15%3A19%3A10.7800694Z",
@@ -62,7 +62,7 @@ class CustomerTest < Minitest::Test
   end
 
   def test_retrieve_all_customers
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/').
         with(
 
             headers: {
@@ -138,7 +138,7 @@ class CustomerTest < Minitest::Test
   end
 
   def test_retrieve_customer
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/123').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
@@ -181,7 +181,7 @@ class CustomerTest < Minitest::Test
   end
 
   def test_retrieve_customers_with_pagination
-    stub_request(:get, 'https://api.alternaativepayments.com/api/customers/?limit=3&offset=10').
+    stub_request(:get, 'https://api.alternativepayments.com/api/customers/?limit=3&offset=10').
         with(
             headers: {
                 :authorization => "Basic #{Base64.encode64('test').gsub("\n", '')}",
