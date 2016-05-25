@@ -1,6 +1,7 @@
 module ApRubySdk
   class BaseModel
     attr_accessor :id,
+                  :mode,
                   :created,
                   :updated
 
