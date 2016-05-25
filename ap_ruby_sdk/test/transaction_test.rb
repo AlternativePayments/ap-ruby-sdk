@@ -9,6 +9,7 @@ class TransactionTest < Minitest::Test
                     '"id":"trn_d12209838b",'\
                     '"mode":"Live",'\
                     '"customer":{'\
+                      '"^o":"ApRubySdk::Customer",'\
                       '"id":"cus_bd838e3611d34d598",'\
                       '"mode":"Live",'\
                       '"firstName":"John",'\
@@ -67,6 +68,12 @@ class TransactionTest < Minitest::Test
 
     assert_equal('trn_d12209838b', transaction.id)
     assert_equal('Live', transaction.mode)
+    assert_equal(customer.id, transaction.customer.id)
+    assert_equal(customer.firstName, transaction.customer.firstName)
+    assert_equal(customer.lastName, transaction.customer.lastName)
+    assert_equal(customer.email, transaction.customer.email)
+    assert_equal(customer.country, transaction.customer.country)
+    assert_equal(customer.created, transaction.customer.created)
     assert_equal(500, transaction.amount)
     assert_equal('EUR', transaction.currency)
     assert_equal('2016-03-24T15:19:10.7800694Z', transaction.created)

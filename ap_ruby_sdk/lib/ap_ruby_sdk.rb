@@ -1,5 +1,6 @@
 require 'base64'
 require 'rest_client'
+require 'oj'
 require 'multi_json'
 
 # Version
@@ -49,7 +50,7 @@ module ApRubySdk
       # Make params into expected PUT params
     else
       # Make params into POST params
-      payload = params.to_json
+      payload = MultiJson.dump(params, mode: :object)
     end
 
     request_opts = {
