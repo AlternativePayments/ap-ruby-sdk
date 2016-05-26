@@ -6,5 +6,6 @@ gemspec
 
 gem 'minitest'
 gem 'multi_json'
+gem 'oj'
 gem 'rest-client'
 gem 'webmock'
