@@ -14,10 +14,19 @@ module ApRubySdk
                   :merchantTransactionId,
                   :description,
                   :ipAddress,
-                  :status
+                  :status,
+                  :redirectUrls
 
     def customer=(customer)
       @customer = Customer.new(customer)
+    end
+
+    def payment=(payment)
+      @payment = Payment.new(payment)
+    end
+
+    def redirectUrls=(redirectUrls)
+      @redirectUrls = RedirectUrls.new(redirectUrls)
     end
 
     def self.url

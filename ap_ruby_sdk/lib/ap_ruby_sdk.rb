@@ -25,6 +25,7 @@ require 'ap_ruby_sdk/api_resource'
 require 'ap_ruby_sdk/customer'
 require 'ap_ruby_sdk/payment'
 require 'ap_ruby_sdk/transaction'
+require 'ap_ruby_sdk/redirect_urls'
 
 module ApRubySdk
   @api_base = 'https://api.alternativepayments.com/api'
@@ -50,7 +51,7 @@ module ApRubySdk
       # Make params into expected PUT params
     else
       # Make params into POST params
-      payload = MultiJson.dump(params, mode: :object)
+      payload = MultiJson.dump(params, mode: :compat)
     end
 
     request_opts = {
