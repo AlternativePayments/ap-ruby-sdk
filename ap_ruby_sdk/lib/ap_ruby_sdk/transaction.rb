@@ -15,7 +15,8 @@ module ApRubySdk
                   :description,
                   :ipAddress,
                   :status,
-                  :redirectUrls
+                  :redirectUrls,
+                  :redirectUrl
 
     def customer=(customer)
       @customer = Customer.new(customer)

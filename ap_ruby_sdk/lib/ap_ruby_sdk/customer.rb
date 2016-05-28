@@ -8,11 +8,13 @@ module ApRubySdk
                   :lastName,
                   :email,
                   :address,
+                  :address2,
                   :city,
                   :zip,
                   :country,
                   :state,
-                  :phone
+                  :phone,
+                  :birthDate
 
     def self.url
       '/customers'
