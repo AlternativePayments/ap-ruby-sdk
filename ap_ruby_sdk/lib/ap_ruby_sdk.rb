@@ -26,6 +26,7 @@ require 'ap_ruby_sdk/customer'
 require 'ap_ruby_sdk/payment'
 require 'ap_ruby_sdk/transaction'
 require 'ap_ruby_sdk/redirect_urls'
+require 'ap_ruby_sdk/phone_verification'
 
 module ApRubySdk
   @api_base = 'https://api.alternativepayments.com/api'
