@@ -7,7 +7,6 @@ module ApRubySdk
     attr_accessor :customer,
                   :customerId,
                   :payment,
-                  :phoneVerification,
                   :amount,
                   :currency,
                   :merchantPassThruData,
