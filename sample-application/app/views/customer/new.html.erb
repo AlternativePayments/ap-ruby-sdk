@@ -1,0 +1,8 @@
+<%= form_tag customer_index_path, :method => :post do %>
+    <label>Insert email: </label>
+    <input id="email" name="email" type="text">
+
+    <%= submit_tag('Create') %>
+<% end %>
+
+<label><%= flash[:notice] if flash[:notice] %></label>

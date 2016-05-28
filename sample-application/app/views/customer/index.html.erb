@@ -1,0 +1,14 @@
+<%= form_tag customer_index_path, :method => :get do %>
+    <label>Insert customer id: </label>
+    <input id="customer_id" name="customer_id" type="text">
+
+    <%= submit_tag('Retrieve') %>
+<% end %>
+
+<% if @customer.present? %>
+    <label>Email: <%= @customer.email %></label>
+    <br/>
+    <label>First name: <%= @customer.firstName %></label>
+    <br/>
+    <label>last name: <%= @customer.lastName %></label>
+<% end %>
