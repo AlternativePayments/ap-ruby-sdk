@@ -56,6 +56,8 @@ module ApRubySdk
 
     request_opts = {
         :headers => request_headers(api_key).update(headers),
+        :open_timeout => 30,
+        :timeout => 80,
         :method => method,
         :payload => payload,
         :url => url
