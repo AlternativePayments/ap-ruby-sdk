@@ -1,5 +1,5 @@
 require 'base64'
-require 'rest_client'
+require 'rest-client'
 require 'oj'
 require 'multi_json'
 
@@ -57,10 +57,12 @@ module ApRubySdk
 
     request_opts = {
         :headers => request_headers(api_key).update(headers),
-        :method => method, :open_timeout => 30,
-        :payload => payload, :url => url, :timeout => 80
+        :open_timeout => 30,
+        :timeout => 80,
+        :method => method,
+        :payload => payload,
+        :url => url
     }
-
     begin
       response = execute_request(request_opts)
     rescue RestClient::ExceptionWithResponse => e
@@ -88,8 +90,8 @@ module ApRubySdk
   def self.request_headers(api_key)
     {
         :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}",
-        :authorization => "Basic #{Base64.encode64(api_key)}",
-        :content_type => 'application/json'
+        :authorization => "Basic #{Base64.strict_encode64(api_key)}",
+        :content_type => :json
     }
   end
 

@@ -1,0 +1,64 @@
+<table>
+  <tr>
+    <td><strong>Options:</strong></td>
+  </tr>
+  <tr>
+    <td><a href="<%= new_customer_path %>">Add customer</a></td>
+    <td><a href="<%= customer_index_path %>">Get customer</a></td>
+    <td><a href="<%= customers_path %>">Get all customers</a></td>
+  </tr>
+  <tr>
+    <td><table>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :sepa) %>">Add SEPA transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :brazil_pay_boleto) %>">Add BrazilPayBoleto transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :brazil_pay_bank_transfer) %>">Add BrazilPayBankTransfer transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :teleingreso) %>">Add Teleingreso transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :safetypay) %>">Add SafetyPay transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :poli) %>">Add POLi transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :ideal) %>">Add IDEAL transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :trustpay) %>">Add TrustPay transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :mistercash) %>">Add MisterCash transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :przelewy24) %>">Add Przelewy24 transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :giropay) %>">Add GiroPay transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :credit_card) %>">Add Credit Card transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :directpay) %>">Add DirectPay transaction</a></td></tr>
+      <tr>
+        <td><a href="<%= new_transaction_url(:transaction_type => :directpaymax) %>">Add DirectPayMax transaction</a></td></tr>
+    </table></td>
+    <td><a href="<%= transaction_index_path %>">Get transaction</a></td>
+    <td><a href="<%= transactions_path %>">Get all transactions</a></td>
+  </tr>
+  <tr>
+    <td><a href="index.php?option=subscription&action=add">Add subscription</a></td>
+    <td><a href="index.php?option=subscription&action=get">Get subscription</a></td>
+    <td><a href="index.php?option=subscription&action=getall">Get all subscriptions</a></td>
+  </tr>
+  <tr>
+    <td><a href="index.php?option=plan&action=add">Add plan</a></td>
+    <td><a href="index.php?option=plan&action=get">Get plan</a></td>
+    <td><a href="index.php?option=plan&action=getall">Get all plans</a></td>
+  </tr>
+  <tr>
+    <td><a href="index.php?option=refund&action=add">Add refund</a></td>
+    <td><a href="index.php?option=refund&action=get">Get refund</a></td>
+    <td><a href="index.php?option=refund&action=getall">Get all refunds</a></td>
+  </tr>
+  <tr>
+    <td><a href="index.php?option=void&action=add">Add void</a></td>
+    <td><a href="index.php?option=void&action=get">Get void</a></td>
+    <td><a href="index.php?option=void&action=getall">Get all voids</a></td>
+  </tr>
+</table>
