@@ -16,7 +16,8 @@ module ApRubySdk
                   :ipAddress,
                   :status,
                   :redirectUrls,
-                  :redirectUrl
+                  :redirectUrl,
+                  :phoneverification
 
     def customer=(customer)
       @customer = Customer.new(customer)
@@ -28,6 +29,10 @@ module ApRubySdk
 
     def redirectUrls=(redirectUrls)
       @redirectUrls = RedirectUrls.new(redirectUrls)
+    end
+
+    def phoneverification=(phoneverification)
+      @phoneverification = PhoneVerification.new(phoneverification)
     end
 
     def self.url
