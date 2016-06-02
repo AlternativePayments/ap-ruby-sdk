@@ -67,6 +67,7 @@ module ApRubySdk
           '/transactions' => Transaction,
           '/phoneverification' => PhoneVerification,
           '/voids' => Void,
+          '/plans' => Plan,
           '/refunds' => Refund
       }
     end
