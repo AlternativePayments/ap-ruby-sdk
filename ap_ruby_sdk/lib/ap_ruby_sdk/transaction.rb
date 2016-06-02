@@ -59,6 +59,30 @@ module ApRubySdk
       self.class.voids(transaction_id)
     end
 
+    def self.retrieve_refund(refund_id=nil, transaction_id=self.id)
+      Refund.retrieve(refund_id, {}, "#{self.url}/#{transaction_id}")
+    end
+
+    def retrieve_refund(refund_id=nil, transaction_id=self.id)
+      self.class.retrieve_refund(refund_id, transaction_id)
+    end
+
+    def self.refund(reason='', transaction_id=self.id)
+      Refund.create({:reason => reason}, "#{self.url}/#{transaction_id}")
+    end
+
+    def refund(reason='', transaction_id=self.id)
+      self.class.refund(reason, transaction_id)
+    end
+
+    def self.refunds(transaction_id=self.id)
+      Refund.all({}, "#{self.url}/#{transaction_id}")
+    end
+
+    def refunds(transaction_id=self.id)
+      self.class.refunds(transaction_id)
+    end
+
     def self.url
       '/transactions'
     end
