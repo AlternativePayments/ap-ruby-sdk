@@ -25,6 +25,7 @@ require 'ap_ruby_sdk/api_resource'
 require 'ap_ruby_sdk/customer'
 require 'ap_ruby_sdk/payment'
 require 'ap_ruby_sdk/transaction'
+require 'ap_ruby_sdk/void'
 require 'ap_ruby_sdk/redirect_urls'
 require 'ap_ruby_sdk/phone_verification'
 

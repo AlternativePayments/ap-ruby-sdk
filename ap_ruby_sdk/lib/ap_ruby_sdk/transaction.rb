@@ -35,6 +35,30 @@ module ApRubySdk
       @phoneverification = PhoneVerification.new(phoneverification)
     end
 
+    def self.retrieve_void(void_id=nil, transaction_id=self.id)
+      Void.retrieve(void_id, {}, "#{self.url}/#{transaction_id}")
+    end
+
+    def retrieve_void(void_id=nil, transaction_id=self.id)
+      self.class.retrieve_void(void_id, transaction_id)
+    end
+
+    def self.void(reason='', transaction_id=self.id)
+      Void.create({:reason => reason}, "#{self.url}/#{transaction_id}")
+    end
+
+    def void(reason='', transaction_id=self.id)
+      self.class.void(reason, transaction_id)
+    end
+
+    def self.voids(transaction_id=self.id)
+      Void.all({}, "#{self.url}/#{transaction_id}")
+    end
+
+    def voids(transaction_id=self.id)
+      self.class.voids(transaction_id)
+    end
+
     def self.url
       '/transactions'
     end
