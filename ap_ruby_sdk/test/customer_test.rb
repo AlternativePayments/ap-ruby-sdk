@@ -86,7 +86,7 @@ class CustomerTest < Minitest::Test
         ).to_return(:status => 200, :body => MultiJson.dump(
                                       {
 
-                                          'customers': [
+                                          'customers' => [
                                               {
                                                   'id' => 'cus_7f0724f3b1d745d49',
                                                   'mode' => 'Live',
@@ -203,7 +203,7 @@ class CustomerTest < Minitest::Test
             }
         ).to_return(:status => 200, :body => MultiJson.dump(
                                       {
-                                          'customers': [
+                                          'customers' => [
                                               {
                                                   'id' => 'cus_7f0724f3b1d745d49',
                                                   'mode' => 'Live',
