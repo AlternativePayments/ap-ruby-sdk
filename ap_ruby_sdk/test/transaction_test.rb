@@ -893,7 +893,7 @@ class TransactionTest < Minitest::Test
         ).to_return(:status => 200, :body => MultiJson.dump(
         {
 
-            'transactions': [
+            'transactions' => [
                 {
                     'id' => 'trn_d12209838b',
                     'mode' => 'Live',
