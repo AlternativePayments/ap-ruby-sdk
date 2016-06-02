@@ -1,0 +1,10 @@
+<%= form_tag plan_index_path, :method => :get do %>
+    <label>Insert plan id: </label>
+    <input id="plan_id" name="plan_id" type="text">
+
+    <%= submit_tag('Retrieve') %>
+<% end %>
+
+<% if @plan.present? %>
+    <label><%= @plan.to_json %></label>
+<% end %>

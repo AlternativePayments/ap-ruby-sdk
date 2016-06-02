@@ -1,0 +1,10 @@
+<%= form_tag subscription_index_path, :method => :get do %>
+    <label>Insert subscription id: </label>
+    <input id="subscription_id" name="subscription_id" type="text">
+
+    <%= submit_tag('Retrieve') %>
+<% end %>
+
+<% if @subscription.present? %>
+    <label><%= @subscription.to_json %></label>
+<% end %>

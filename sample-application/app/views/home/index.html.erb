@@ -42,23 +42,23 @@
     <td><a href="<%= transactions_path %>">Get all transactions</a></td>
   </tr>
   <tr>
-    <td><a href="index.php?option=subscription&action=add">Add subscription</a></td>
-    <td><a href="index.php?option=subscription&action=get">Get subscription</a></td>
-    <td><a href="index.php?option=subscription&action=getall">Get all subscriptions</a></td>
+    <td><a href="<%= new_subscription_path %>">Add subscription</a></td>
+    <td><a href="<%= subscription_index_path %>">Get subscription</a></td>
+    <td><a href="<%= subscriptions_path %>">Get all subscriptions</a></td>
   </tr>
   <tr>
-    <td><a href="index.php?option=plan&action=add">Add plan</a></td>
-    <td><a href="index.php?option=plan&action=get">Get plan</a></td>
-    <td><a href="index.php?option=plan&action=getall">Get all plans</a></td>
+    <td><a href="<%= new_plan_path %>">Add plan</a></td>
+    <td><a href="<%= plan_index_path %>">Get plan</a></td>
+    <td><a href="<%= plans_path %>">Get all plans</a></td>
   </tr>
   <tr>
-    <td><a href="index.php?option=refund&action=add">Add refund</a></td>
-    <td><a href="index.php?option=refund&action=get">Get refund</a></td>
-    <td><a href="index.php?option=refund&action=getall">Get all refunds</a></td>
+    <td><a href="<%= new_void_path %>">Void Transaction</a></td>
+    <td><a href="<%= void_index_path %>">Get Void</a></td>
+    <td><a href="<%= voids_path %>">Get all voids for transaction</a></td>
   </tr>
   <tr>
-    <td><a href="index.php?option=void&action=add">Add void</a></td>
-    <td><a href="index.php?option=void&action=get">Get void</a></td>
-    <td><a href="index.php?option=void&action=getall">Get all voids</a></td>
+    <td><a href="<%= new_refund_path %>">Refund Transaction</a></td>
+    <td><a href="<%= refund_index_path %>">Get Refund</a></td>
+    <td><a href="<%= refunds_path %>">Get all refunds for transaction</a></td>
   </tr>
 </table>

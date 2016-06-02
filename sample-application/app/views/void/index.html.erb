@@ -1,0 +1,13 @@
+<%= form_tag void_index_path, :method => :get do %>
+    <label>Insert void id: </label>
+    <input id="void_id" name="void_id" type="text">
+    <br/>
+    <label>Insert transaction id: </label>
+    <input id="transaction_id" name="transaction_id" type="text">
+
+    <%= submit_tag('Retrieve') %>
+<% end %>
+
+<% if @void.present? %>
+    <label><%= @void.to_json %></label>
+<% end %>

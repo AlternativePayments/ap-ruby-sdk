@@ -1,9 +1,4 @@
 <% @customers.each_with_index  do |customer, index|%>
-    <label><%= "#{index + 1}." %></label>
-    <label>Email: <%= customer.email %></label>
-    <br/>
-    <label>First name: <%= customer.firstName %></label>
-    <br/>
-    <label>last name: <%= customer.lastName %></label>
+    <label><%= "#{index + 1}. #{customer.to_json}" %></label>
     <br/>
 <% end %>
