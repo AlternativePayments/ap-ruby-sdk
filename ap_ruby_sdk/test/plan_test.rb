@@ -25,7 +25,7 @@ class PlanTest < Minitest::Test
                                           'description' => 'Test plan',
                                           'amount' => 1000,
                                           'currency' => 'EUR',
-                                          'period' => 'Day',
+                                          'period' => ApRubySdk::Period::DAY,
                                           'interval' => 5,
                                           'created' => '2016-03-24T15:19:10.7800694Z'
                                       },
@@ -33,7 +33,7 @@ class PlanTest < Minitest::Test
 
     plan = ApRubySdk::Plan.create(
         'interval' => 5,
-        'period' => 'Day',
+        'period' => ApRubySdk::Period::DAY,
         'amount' => 1000,
         'currency' => 'EUR',
         'name' => 'Test',
@@ -47,7 +47,7 @@ class PlanTest < Minitest::Test
     assert_equal(1000, plan.amount)
     assert_equal('EUR', plan.currency)
     assert_equal(5, plan.interval)
-    assert_equal('Day', plan.period)
+    assert_equal(ApRubySdk::Period::DAY, plan.period)
     assert_equal('2016-03-24T15:19:10.7800694Z', plan.created)
   end
 
@@ -73,7 +73,7 @@ class PlanTest < Minitest::Test
                                                   'description' => 'Test plan',
                                                   'amount' => 1000,
                                                   'currency' => 'EUR',
-                                                  'period' => 'Day',
+                                                  'period' => ApRubySdk::Period::DAY,
                                                   'interval' => 5,
                                                   'created' => '2016-03-24T15:19:10.7800694Z'
                                               },
@@ -84,7 +84,7 @@ class PlanTest < Minitest::Test
                                                   'description' => 'Test2 plan',
                                                   'amount' => 2000,
                                                   'currency' => 'EUR',
-                                                  'period' => 'Day',
+                                                  'period' => ApRubySdk::Period::DAY,
                                                   'interval' => 6,
                                                   'created' => '2016-03-24T15:19:10.7800694Z'
                                               }
@@ -105,7 +105,7 @@ class PlanTest < Minitest::Test
     assert_equal(1000, first_plan.amount)
     assert_equal('EUR', first_plan.currency)
     assert_equal(5, first_plan.interval)
-    assert_equal('Day', first_plan.period)
+    assert_equal(ApRubySdk::Period::DAY, first_plan.period)
     assert_equal('2016-03-24T15:19:10.7800694Z', first_plan.created)
 
     second_plan = plans[1]
@@ -117,7 +117,7 @@ class PlanTest < Minitest::Test
     assert_equal(2000, second_plan.amount)
     assert_equal('EUR', second_plan.currency)
     assert_equal(6, second_plan.interval)
-    assert_equal('Day', second_plan.period)
+    assert_equal(ApRubySdk::Period::DAY, second_plan.period)
     assert_equal('2016-03-24T15:19:10.7800694Z', second_plan.created)
   end
 
@@ -139,7 +139,7 @@ class PlanTest < Minitest::Test
                                           'description' => 'Test plan',
                                           'amount' => 1000,
                                           'currency' => 'EUR',
-                                          'period' => 'Day',
+                                          'period' => ApRubySdk::Period::DAY,
                                           'interval' => 5,
                                           'created' => '2016-03-24T15:19:10.7800694Z'
                                       },
@@ -154,7 +154,7 @@ class PlanTest < Minitest::Test
     assert_equal(1000, plan.amount)
     assert_equal('EUR', plan.currency)
     assert_equal(5, plan.interval)
-    assert_equal('Day', plan.period)
+    assert_equal(ApRubySdk::Period::DAY, plan.period)
     assert_equal('2016-03-24T15:19:10.7800694Z', plan.created)
   end
 
@@ -178,7 +178,7 @@ class PlanTest < Minitest::Test
                                                   'description' => 'Test plan',
                                                   'amount' => 1000,
                                                   'currency' => 'EUR',
-                                                  'period' => 'Day',
+                                                  'period' => ApRubySdk::Period::DAY,
                                                   'interval' => 5,
                                                   'created' => '2016-03-24T15:19:10.7800694Z'
                                               },
@@ -189,7 +189,7 @@ class PlanTest < Minitest::Test
                                                   'description' => 'Test2 plan',
                                                   'amount' => 2000,
                                                   'currency' => 'EUR',
-                                                  'period' => 'Day',
+                                                  'period' => ApRubySdk::Period::DAY,
                                                   'interval' => 6,
                                                   'created' => '2016-03-24T15:19:10.7800694Z'
                                               },
@@ -200,7 +200,7 @@ class PlanTest < Minitest::Test
                                                   'description' => 'Test3 plan',
                                                   'amount' => 3000,
                                                   'currency' => 'EUR',
-                                                  'period' => 'Day',
+                                                  'period' => ApRubySdk::Period::DAY,
                                                   'interval' => 7,
                                                   'created' => '2016-03-24T15:19:10.7800694Z'
                                               }
@@ -221,7 +221,7 @@ class PlanTest < Minitest::Test
     assert_equal(1000, first_plan.amount)
     assert_equal('EUR', first_plan.currency)
     assert_equal(5, first_plan.interval)
-    assert_equal('Day', first_plan.period)
+    assert_equal(ApRubySdk::Period::DAY, first_plan.period)
     assert_equal('2016-03-24T15:19:10.7800694Z', first_plan.created)
 
     second_plan = plans[1]
@@ -233,7 +233,7 @@ class PlanTest < Minitest::Test
     assert_equal(2000, second_plan.amount)
     assert_equal('EUR', second_plan.currency)
     assert_equal(6, second_plan.interval)
-    assert_equal('Day', second_plan.period)
+    assert_equal(ApRubySdk::Period::DAY, second_plan.period)
     assert_equal('2016-03-24T15:19:10.7800694Z', second_plan.created)
 
     third_plan = plans[2]
@@ -245,7 +245,7 @@ class PlanTest < Minitest::Test
     assert_equal(3000, third_plan.amount)
     assert_equal('EUR', third_plan.currency)
     assert_equal(7, third_plan.interval)
-    assert_equal('Day', third_plan.period)
+    assert_equal(ApRubySdk::Period::DAY, third_plan.period)
     assert_equal('2016-03-24T15:19:10.7800694Z', third_plan.created)
   end
 end

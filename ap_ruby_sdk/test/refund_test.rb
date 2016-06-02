@@ -23,7 +23,7 @@ class RefundTest < Minitest::Test
                                           'mode' => 'Live',
                                           'amount' => 4000,
                                           'currency' => 'EUR',
-                                          'reason' => 'FRAUD',
+                                          'reason' => ApRubySdk::RefundReason::FRAUD,
                                           'originalTransactionId' => 'trn_41f1487',
                                           'originalTransaction' => {
                                               'id' => 'trn_41f1487',
@@ -38,12 +38,12 @@ class RefundTest < Minitest::Test
                                       },
                                       :headers => {}))
 
-    refund = ApRubySdk::Transaction.refund('FRAUD', 'trn_41f1487')
+    refund = ApRubySdk::Transaction.refund(ApRubySdk::RefundReason::FRAUD, 'trn_41f1487')
 
     assert_equal('ref_0a3f6b2', refund.id)
     assert_equal(4000, refund.amount)
     assert_equal('EUR', refund.currency)
-    assert_equal('FRAUD', refund.reason)
+    assert_equal(ApRubySdk::RefundReason::FRAUD, refund.reason)
     assert_equal('trn_41f1487', refund.originalTransactionId)
     assert_equal('2015-06-24T11:47:30.6806641Z', refund.created)
     assert_equal('Approved', refund.status)
@@ -60,7 +60,7 @@ class RefundTest < Minitest::Test
         with(
             body: hash_including(
                 {
-                    reason: 'FRAUD'
+                    reason: ApRubySdk::RefundReason::FRAUD
                 }
             ),
             headers: {
@@ -76,7 +76,7 @@ class RefundTest < Minitest::Test
                                           'mode' => 'Live',
                                           'amount' => 4000,
                                           'currency' => 'EUR',
-                                          'reason' => 'FRAUD',
+                                          'reason' => ApRubySdk::RefundReason::FRAUD,
                                           'originalTransactionId' => 'trn_41f1487',
                                           'originalTransaction' => {
                                               'id' => 'trn_41f1487',
@@ -112,12 +112,12 @@ class RefundTest < Minitest::Test
         'currency' => 'EUR'
     )
 
-    refund = transaction.refund('FRAUD')
+    refund = transaction.refund(ApRubySdk::RefundReason::FRAUD)
 
     assert_equal('ref_0a3f6b2', refund.id)
     assert_equal(4000, refund.amount)
     assert_equal('EUR', refund.currency)
-    assert_equal('FRAUD', refund.reason)
+    assert_equal(ApRubySdk::RefundReason::FRAUD, refund.reason)
     assert_equal('trn_41f1487', refund.originalTransactionId)
     assert_equal('2015-06-24T11:47:30.6806641Z', refund.created)
     assert_equal('Approved', refund.status)
@@ -145,7 +145,7 @@ class RefundTest < Minitest::Test
                                           'mode' => 'Live',
                                           'amount' => 4000,
                                           'currency' => 'EUR',
-                                          'reason' => 'FRAUD',
+                                          'reason' => ApRubySdk::RefundReason::FRAUD,
                                           'originalTransactionId' => 'trn_41f1487',
                                           'originalTransaction' => {
                                               'id' => 'trn_41f1487',
@@ -182,7 +182,7 @@ class RefundTest < Minitest::Test
     assert_equal('ref_0a3f6b2', refund.id)
     assert_equal(4000, refund.amount)
     assert_equal('EUR', refund.currency)
-    assert_equal('FRAUD', refund.reason)
+    assert_equal(ApRubySdk::RefundReason::FRAUD, refund.reason)
     assert_equal('trn_41f1487', refund.originalTransactionId)
     assert_equal('2015-06-24T11:47:30.68Z', refund.created)
     assert_equal('Approved', refund.status)
@@ -218,7 +218,7 @@ class RefundTest < Minitest::Test
                                           'mode' => 'Live',
                                           'amount' => 4000,
                                           'currency' => 'EUR',
-                                          'reason' => 'FRAUD',
+                                          'reason' => ApRubySdk::RefundReason::FRAUD,
                                           'originalTransactionId' => 'trn_41f1487',
                                           'originalTransaction' => {
                                               'id' => 'trn_41f1487',
@@ -282,7 +282,7 @@ class RefundTest < Minitest::Test
     assert_equal('ref_0a3f6b2', refund.id)
     assert_equal(4000, refund.amount)
     assert_equal('EUR', refund.currency)
-    assert_equal('FRAUD', refund.reason)
+    assert_equal(ApRubySdk::RefundReason::FRAUD, refund.reason)
     assert_equal('trn_41f1487', refund.originalTransactionId)
     assert_equal('2015-06-24T11:47:30.68Z', refund.created)
     assert_equal('Approved', refund.status)
@@ -319,7 +319,7 @@ class RefundTest < Minitest::Test
                                                   'mode' => 'Live',
                                                   'amount' => 4000,
                                                   'currency' => 'EUR',
-                                                  'reason' => 'Fraud',
+                                                  'reason' => ApRubySdk::RefundReason::FRAUD,
                                                   'originalTransactionId' => 'trn_41f1487',
                                                   'originalTransaction' => {
                                                       'id' => 'trn_41f1487',
@@ -354,7 +354,7 @@ class RefundTest < Minitest::Test
                                                   'mode' => 'Live',
                                                   'amount' => 250,
                                                   'currency' => 'EUR',
-                                                  'reason' => 'Fraud',
+                                                  'reason' => ApRubySdk::RefundReason::FRAUD,
                                                   'originalTransactionId' => 'trn_41f1487',
                                                   'originalTransaction' => {
                                                       'id' => 'trn_41f1487',
@@ -396,7 +396,7 @@ class RefundTest < Minitest::Test
     assert_equal('ref_0a3f6b2', first_refund.id)
     assert_equal(4000, first_refund.amount)
     assert_equal('EUR', first_refund.currency)
-    assert_equal('Fraud', first_refund.reason)
+    assert_equal(ApRubySdk::RefundReason::FRAUD, first_refund.reason)
     assert_equal('trn_41f1487', first_refund.originalTransactionId)
     assert_equal('2015-06-24T11:47:30.68Z', first_refund.created)
     assert_equal('Approved', first_refund.status)
@@ -418,7 +418,7 @@ class RefundTest < Minitest::Test
     assert_equal('ref_0a332b2', second_refund.id)
     assert_equal(250, second_refund.amount)
     assert_equal('EUR', second_refund.currency)
-    assert_equal('Fraud', second_refund.reason)
+    assert_equal(ApRubySdk::RefundReason::FRAUD, second_refund.reason)
     assert_equal('trn_41f1487', second_refund.originalTransactionId)
     assert_equal('2015-06-24T11:47:30.68Z', second_refund.created)
     assert_equal('Approved', second_refund.status)
@@ -455,7 +455,7 @@ class RefundTest < Minitest::Test
                                                   'mode' => 'Live',
                                                   'amount' => 4000,
                                                   'currency' => 'EUR',
-                                                  'reason' => 'Fraud',
+                                                  'reason' => ApRubySdk::RefundReason::FRAUD,
                                                   'originalTransactionId' => 'trn_41f1487',
                                                   'originalTransaction' => {
                                                       'id' => 'trn_41f1487',
@@ -490,7 +490,7 @@ class RefundTest < Minitest::Test
                                                   'mode' => 'Live',
                                                   'amount' => 250,
                                                   'currency' => 'EUR',
-                                                  'reason' => 'Fraud',
+                                                  'reason' => ApRubySdk::RefundReason::FRAUD,
                                                   'originalTransactionId' => 'trn_41f1487',
                                                   'originalTransaction' => {
                                                       'id' => 'trn_41f1487',
@@ -559,7 +559,7 @@ class RefundTest < Minitest::Test
     assert_equal('ref_0a3f6b2', first_refund.id)
     assert_equal(4000, first_refund.amount)
     assert_equal('EUR', first_refund.currency)
-    assert_equal('Fraud', first_refund.reason)
+    assert_equal(ApRubySdk::RefundReason::FRAUD, first_refund.reason)
     assert_equal('trn_41f1487', first_refund.originalTransactionId)
     assert_equal('2015-06-24T11:47:30.68Z', first_refund.created)
     assert_equal('Approved', first_refund.status)
@@ -581,7 +581,7 @@ class RefundTest < Minitest::Test
     assert_equal('ref_0a332b2', second_refund.id)
     assert_equal(250, second_refund.amount)
     assert_equal('EUR', second_refund.currency)
-    assert_equal('Fraud', second_refund.reason)
+    assert_equal(ApRubySdk::RefundReason::FRAUD, second_refund.reason)
     assert_equal('trn_41f1487', second_refund.originalTransactionId)
     assert_equal('2015-06-24T11:47:30.68Z', second_refund.created)
     assert_equal('Approved', second_refund.status)

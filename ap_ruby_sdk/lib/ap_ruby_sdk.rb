@@ -30,6 +30,8 @@ require 'ap_ruby_sdk/refund'
 require 'ap_ruby_sdk/redirect_urls'
 require 'ap_ruby_sdk/phone_verification'
 require 'ap_ruby_sdk/plan'
+require 'ap_ruby_sdk/period'
+require 'ap_ruby_sdk/refund_reason'
 
 module ApRubySdk
   @api_base = 'https://api.alternativepayments.com/api'
