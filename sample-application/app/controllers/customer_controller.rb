@@ -24,7 +24,7 @@ class CustomerController < ApplicationController
         }
     )
 
-    flash[:notice] = customer.id
+    flash[:notice] = customer.to_json
     redirect_to new_customer_url
   end
 

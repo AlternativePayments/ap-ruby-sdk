@@ -1,14 +1,4 @@
-<% transactions.each_with_index  do |transaction, index|%>
-    <label><%= "#{index + 1}." %></label>
-    <label>Transaction id: <%= transaction.id %></label>
+<% @transactions.each_with_index  do |transaction, index|%>
+    <label><%= "#{index + 1}. #{transaction.to_json}" %></label>
     <br/>
-    <label>Transaction currency: <%= transaction.currency %></label>
-    <br/>
-    <label>Transaction amount: <%= transaction.amount %></label>
-    <br/>
-    <label>Transaction type: <%= transaction.payment.paymentOption %></label>
-    <br/>
-    <label>Customer first name: <%= transaction.customer.firstName %></label>
-    <br/>
-    <label>Customer last name: <%= transaction.customer.lastName %></label>
 <% end %>

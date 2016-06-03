@@ -1,0 +1,4 @@
+<% @plans.each_with_index  do |plan, index|%>
+    <label><%= "#{index + 1}. #{plan.to_json}" %></label>
+    <br/>
+<% end %>

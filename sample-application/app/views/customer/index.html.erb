@@ -6,9 +6,5 @@
 <% end %>
 
 <% if @customer.present? %>
-    <label>Email: <%= @customer.email %></label>
-    <br/>
-    <label>First name: <%= @customer.firstName %></label>
-    <br/>
-    <label>last name: <%= @customer.lastName %></label>
+    <label><%= @customer.to_json %></label>
 <% end %>

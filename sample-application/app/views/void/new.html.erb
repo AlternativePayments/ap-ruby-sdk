@@ -1,0 +1,8 @@
+<%= form_tag void_index_path, :method => :post do %>
+    <label>Insert Transaction id you want to void: </label>
+    <input id="transaction_id" name="transaction_id" type="text">
+
+    <%= submit_tag('Void Transaction') %>
+<% end %>
+
+<label><%= flash[:notice] if flash[:notice] %></label>

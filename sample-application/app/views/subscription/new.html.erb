@@ -1,0 +1,15 @@
+<%= form_tag subscription_index_path, :method => :post do %>
+    <label>Insert plan name: </label>
+    <input id="plan_name" name="plan_name" type="text">
+    <br/>
+    <label>Insert plan amount: </label>
+    <input id="plan_amount" name="plan_amount" type="text">
+    <br/>
+    <label>Insert user email: </label>
+    <input id="email" name="email" type="text">
+    <br/>
+
+    <%= submit_tag('Create') %>
+<% end %>
+
+<label><%= flash[:notice] if flash[:notice] %></label>
