@@ -390,9 +390,9 @@ class RefundTest < Minitest::Test
 
     refunds = ApRubySdk::Transaction.refunds('trn_41f1487')
 
-    assert_equal(2, refunds.length)
+    assert_equal(2, refunds.items.length)
 
-    first_refund = refunds[0]
+    first_refund = refunds.items[0]
     assert_equal('ref_0a3f6b2', first_refund.id)
     assert_equal(4000, first_refund.amount)
     assert_equal('EUR', first_refund.currency)
@@ -414,7 +414,7 @@ class RefundTest < Minitest::Test
     assert_equal('DE', first_refund.originalTransaction.customer.country)
     assert_equal('2015-06-24T11:46:35.303Z', first_refund.originalTransaction.customer.created)
 
-    second_refund = refunds[1]
+    second_refund = refunds.items[1]
     assert_equal('ref_0a332b2', second_refund.id)
     assert_equal(250, second_refund.amount)
     assert_equal('EUR', second_refund.currency)
@@ -553,9 +553,9 @@ class RefundTest < Minitest::Test
 
     refunds = transaction.refunds('trn_41f1487')
 
-    assert_equal(2, refunds.length)
+    assert_equal(2, refunds.items.length)
 
-    first_refund = refunds[0]
+    first_refund = refunds.items[0]
     assert_equal('ref_0a3f6b2', first_refund.id)
     assert_equal(4000, first_refund.amount)
     assert_equal('EUR', first_refund.currency)
@@ -577,7 +577,7 @@ class RefundTest < Minitest::Test
     assert_equal('DE', first_refund.originalTransaction.customer.country)
     assert_equal('2015-06-24T11:46:35.303Z', first_refund.originalTransaction.customer.created)
 
-    second_refund = refunds[1]
+    second_refund = refunds.items[1]
     assert_equal('ref_0a332b2', second_refund.id)
     assert_equal(250, second_refund.amount)
     assert_equal('EUR', second_refund.currency)

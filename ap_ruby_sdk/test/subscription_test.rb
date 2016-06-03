@@ -169,15 +169,15 @@ class SubscriptionTest < Minitest::Test
 
     subscriptions = ApRubySdk::Subscription.all
 
-    assert_equal(2, subscriptions.length)
+    assert_equal(2, subscriptions.items.length)
 
-    first_subscription = subscriptions[0]
+    first_subscription = subscriptions.items[0]
 
     assert_equal('cus_70ac08b06b4949bfb', first_subscription.customerId)
     assert_equal('pay_a7cc4479772c4cdc8', first_subscription.paymentId)
     assert_equal('pln_a27286a', first_subscription.planId)
 
-    second_subscription = subscriptions[1]
+    second_subscription = subscriptions.items[1]
 
     assert_equal('cus_70ac08b06b4949bfc', second_subscription.customerId)
     assert_equal('pay_a7cc4479772c4cdcc', second_subscription.paymentId)

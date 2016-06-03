@@ -388,9 +388,9 @@ class VoidTest < Minitest::Test
 
     voids = ApRubySdk::Transaction.voids('trn_41f1487')
 
-    assert_equal(2, voids.length)
+    assert_equal(2, voids.items.length)
 
-    first_void = voids[0]
+    first_void = voids.items[0]
     assert_equal('void_0a3f6b2', first_void.id)
     assert_equal(4000, first_void.amount)
     assert_equal('EUR', first_void.currency)
@@ -412,7 +412,7 @@ class VoidTest < Minitest::Test
     assert_equal('DE', first_void.originalTransaction.customer.country)
     assert_equal('2015-06-24T11:46:35.303Z', first_void.originalTransaction.customer.created)
 
-    second_void = voids[1]
+    second_void = voids.items[1]
     assert_equal('void_0a332b2', second_void.id)
     assert_equal(250, second_void.amount)
     assert_equal('EUR', second_void.currency)
@@ -551,9 +551,9 @@ class VoidTest < Minitest::Test
 
     voids = transaction.voids('trn_41f1487')
 
-    assert_equal(2, voids.length)
+    assert_equal(2, voids.items.length)
 
-    first_void = voids[0]
+    first_void = voids.items[0]
     assert_equal('void_0a3f6b2', first_void.id)
     assert_equal(4000, first_void.amount)
     assert_equal('EUR', first_void.currency)
@@ -575,7 +575,7 @@ class VoidTest < Minitest::Test
     assert_equal('DE', first_void.originalTransaction.customer.country)
     assert_equal('2015-06-24T11:46:35.303Z', first_void.originalTransaction.customer.created)
 
-    second_void = voids[1]
+    second_void = voids.items[1]
     assert_equal('void_0a332b2', second_void.id)
     assert_equal(250, second_void.amount)
     assert_equal('EUR', second_void.currency)
