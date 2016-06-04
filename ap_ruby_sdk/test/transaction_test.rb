@@ -956,15 +956,15 @@ class TransactionTest < Minitest::Test
 
     transactions = ApRubySdk::Transaction.all
 
-    assert_equal(2, transactions.length)
+    assert_equal(2, transactions.items.length)
 
-    first_transaction = transactions[0]
+    first_transaction = transactions.items[0]
 
     assert_equal('trn_d12209838b', first_transaction.id)
     assert_equal('Giropay', first_transaction.payment.paymentOption)
     assert_equal(300, first_transaction.amount)
 
-    second_transaction = transactions[1]
+    second_transaction = transactions.items[1]
 
     assert_equal('trn_d12209838c', second_transaction.id)
     assert_equal('CreditCard', second_transaction.payment.paymentOption)

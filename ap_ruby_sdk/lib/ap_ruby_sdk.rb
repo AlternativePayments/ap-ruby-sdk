@@ -21,6 +21,7 @@ require 'ap_ruby_sdk/api_operations/retrieve'
 # AP Resources
 require 'ap_ruby_sdk/util'
 require 'ap_ruby_sdk/base_model'
+require 'ap_ruby_sdk/collection'
 require 'ap_ruby_sdk/api_resource'
 require 'ap_ruby_sdk/customer'
 require 'ap_ruby_sdk/payment'
@@ -33,6 +34,7 @@ require 'ap_ruby_sdk/plan'
 require 'ap_ruby_sdk/period'
 require 'ap_ruby_sdk/refund_reason'
 require 'ap_ruby_sdk/subscription'
+require 'ap_ruby_sdk/pagination'
 
 module ApRubySdk
   @api_base = 'https://api.alternativepayments.com/api'

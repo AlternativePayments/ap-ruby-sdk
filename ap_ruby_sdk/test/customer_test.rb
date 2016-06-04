@@ -115,9 +115,9 @@ class CustomerTest < Minitest::Test
 
     customers = ApRubySdk::Customer.all
 
-    assert_equal(2, customers.length)
+    assert_equal(2, customers.items.length)
 
-    first_customer = customers[0]
+    first_customer = customers.items[0]
 
     assert_equal('cus_7f0724f3b1d745d49', first_customer.id)
     assert_equal('Live', first_customer.mode)
@@ -132,7 +132,7 @@ class CustomerTest < Minitest::Test
     assert_nil(first_customer.phone)
     assert_equal('2015-06-24T11:46:35.303Z', first_customer.created)
 
-    second_customer = customers[1]
+    second_customer = customers.items[1]
 
     assert_equal('cus_15b154da474247dbb', second_customer.id)
     assert_equal('Live', second_customer.mode)
@@ -239,15 +239,23 @@ class CustomerTest < Minitest::Test
                                                   'phone' => '55555555555',
                                                   'created' => '2015-06-24T12:28:06.527Z'
                                               }
-                                          ]
+                                          ],
+                                          'pagination' => {
+                                              'offset' => 10,
+                                              'limit'=> 2,
+                                              'count' => 2504
+                                          }
                                       },
                                       :headers => {}))
 
     customers = ApRubySdk::Customer.all(limit: 3, offset: 10)
 
-    assert_equal(3, customers.length)
+    assert_equal(3, customers.items.length)
+    assert_equal(10, customers.pagination.offset)
+    assert_equal(2, customers.pagination.limit)
+    assert_equal(2504, customers.pagination.count)
 
-    first_customer = customers[0]
+    first_customer = customers.items[0]
 
     assert_equal('cus_7f0724f3b1d745d49', first_customer.id)
     assert_equal('Live', first_customer.mode)
@@ -262,7 +270,7 @@ class CustomerTest < Minitest::Test
     assert_nil(first_customer.phone)
     assert_equal('2015-06-24T11:46:35.303Z', first_customer.created)
 
-    second_customer = customers[1]
+    second_customer = customers.items[1]
 
     assert_equal('cus_15b154da474247dbb', second_customer.id)
     assert_equal('Live', second_customer.mode)
@@ -277,7 +285,7 @@ class CustomerTest < Minitest::Test
     assert_equal('55555555555', second_customer.phone)
     assert_equal('2015-06-24T12:28:06.527Z', second_customer.created)
 
-    third_customer = customers[2]
+    third_customer = customers.items[2]
 
     assert_equal('cus_15b154da233sxcvby', third_customer.id)
     assert_equal('Live', third_customer.mode)

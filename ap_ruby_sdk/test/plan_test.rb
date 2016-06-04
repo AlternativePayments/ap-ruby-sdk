@@ -94,9 +94,9 @@ class PlanTest < Minitest::Test
 
     plans = ApRubySdk::Plan.all
 
-    assert_equal(2, plans.length)
+    assert_equal(2, plans.items.length)
 
-    first_plan = plans[0]
+    first_plan = plans.items[0]
 
     assert_equal('pln_6507985', first_plan.id)
     assert_equal('Test', first_plan.mode)
@@ -108,7 +108,7 @@ class PlanTest < Minitest::Test
     assert_equal(ApRubySdk::Period::DAY, first_plan.period)
     assert_equal('2016-03-24T15:19:10.7800694Z', first_plan.created)
 
-    second_plan = plans[1]
+    second_plan = plans.items[1]
 
     assert_equal('pln_6507986', second_plan.id)
     assert_equal('Test', second_plan.mode)
@@ -210,9 +210,9 @@ class PlanTest < Minitest::Test
 
     plans = ApRubySdk::Plan.all(limit: 3, offset: 10)
 
-    assert_equal(3, plans.length)
+    assert_equal(3, plans.items.length)
 
-    first_plan = plans[0]
+    first_plan = plans.items[0]
 
     assert_equal('pln_6507985', first_plan.id)
     assert_equal('Test', first_plan.mode)
@@ -224,7 +224,7 @@ class PlanTest < Minitest::Test
     assert_equal(ApRubySdk::Period::DAY, first_plan.period)
     assert_equal('2016-03-24T15:19:10.7800694Z', first_plan.created)
 
-    second_plan = plans[1]
+    second_plan = plans.items[1]
 
     assert_equal('pln_6507986', second_plan.id)
     assert_equal('Test', second_plan.mode)
@@ -236,7 +236,7 @@ class PlanTest < Minitest::Test
     assert_equal(ApRubySdk::Period::DAY, second_plan.period)
     assert_equal('2016-03-24T15:19:10.7800694Z', second_plan.created)
 
-    third_plan = plans[2]
+    third_plan = plans.items[2]
 
     assert_equal('pln_6507987', third_plan.id)
     assert_equal('Test', third_plan.mode)
