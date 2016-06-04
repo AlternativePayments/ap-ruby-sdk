@@ -69,7 +69,8 @@ module ApRubySdk
           '/voids' => Void,
           '/plans' => Plan,
           '/refunds' => Refund,
-          '/subscriptions' => Subscription
+          '/subscriptions' => Subscription,
+          '/preauthorizations' => Preauthorization
       }
     end
   end
