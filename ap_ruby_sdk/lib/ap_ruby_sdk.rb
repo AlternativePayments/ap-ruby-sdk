@@ -35,6 +35,7 @@ require 'ap_ruby_sdk/period'
 require 'ap_ruby_sdk/refund_reason'
 require 'ap_ruby_sdk/subscription'
 require 'ap_ruby_sdk/pagination'
+require 'ap_ruby_sdk/preauthorization'
 
 module ApRubySdk
   @api_base = 'https://api.alternativepayments.com/api'

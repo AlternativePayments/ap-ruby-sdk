@@ -17,7 +17,8 @@ module ApRubySdk
                   :status,
                   :redirectUrls,
                   :redirectUrl,
-                  :phoneverification
+                  :phoneverification,
+                  :preauthorization
 
     def customer=(customer)
       @customer = Customer.new(customer)
