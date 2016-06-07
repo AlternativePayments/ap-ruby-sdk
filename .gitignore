@@ -10,6 +10,7 @@
 **/test/version_tmp/
 **tmp/
 **log/
+/sample-application/config/initializers/ap_ruby_sdk.rb
 
 ## Specific to RubyMotion:
 .dat*
