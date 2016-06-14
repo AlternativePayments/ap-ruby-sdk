@@ -8,8 +8,8 @@
 == RUNNING APPLICATION
 
     - Clone repo
-    - Inside sample-application folder run `bundle install`
-    - Inside folder sample-application/config/initializers add `ap_ruby_sdk.rb` file where you will set API key provided from you account
-        eg. `ApRubySdk.api_key = 'Test/Live key provided in your Alternative Payments account'`
-    - Start Ruby On Rails server by runing `rails server` from inside folder sample-applicatio
-    - If your setup is default one then access application on `http://localhost:3000`
+    - Inside sample-application folder run +bundle install+
+    - Inside folder +sample-application/config/initializers+ add +ap_ruby_sdk.rb+ file where you will set API key provided from you account
+        eg. +ApRubySdk.api_key = 'Test/Live key provided in your Alternative Payments account'+
+    - Start Ruby On Rails server by runing +rails server+ from inside folder +sample-applicati+
+    - If your setup is default one then access application on +http://localhost:3000+
