@@ -6,7 +6,7 @@
 <% end %>
 
 <% if @refunds.present? %>
-    <% @refunds.each_with_index do |refund, index| %>
+    <% @refunds.items.each_with_index do |refund, index| %>
         <label><%= "#{index + 1}. #{refund.to_json}" %></label>
         <br/>
     <% end %>
