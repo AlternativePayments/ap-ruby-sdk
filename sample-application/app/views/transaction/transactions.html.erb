@@ -1,4 +1,4 @@
-<% @transactions.each_with_index  do |transaction, index|%>
+<% @transactions.items.each_with_index  do |transaction, index|%>
     <label><%= "#{index + 1}. #{transaction.to_json}" %></label>
     <br/>
 <% end %>

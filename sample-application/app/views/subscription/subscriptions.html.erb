@@ -1,4 +1,4 @@
-<% @subscriptions.each_with_index  do |subscription, index|%>
+<% @subscriptions.items.each_with_index  do |subscription, index|%>
     <label><%= "#{index + 1}. #{subscription.to_json}" %></label>
     <br/>
 <% end %>

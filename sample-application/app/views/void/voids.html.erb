@@ -6,7 +6,7 @@
 <% end %>
 
 <% if @voids.present? %>
-    <% @voids.each_with_index do |void, index| %>
+    <% @voids.items.each_with_index do |void, index| %>
         <label><%= "#{index + 1}. #{void.to_json}" %></label>
         <br/>
     <% end %>
