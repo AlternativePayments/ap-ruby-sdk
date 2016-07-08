@@ -18,7 +18,9 @@ module ApRubySdk
                   :redirectUrls,
                   :redirectUrl,
                   :phoneverification,
-                  :preauthorization
+                  :preauthorization,
+                  :isRecurring,
+                  :initialTransactionId
 
     def customer=(customer)
       @customer = Customer.new(customer)

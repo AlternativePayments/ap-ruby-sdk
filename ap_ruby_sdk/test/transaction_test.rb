@@ -569,7 +569,8 @@ class TransactionTest < Minitest::Test
         'customer' => customer,
         'payment' => payment,
         'amount' => 1500,
-        'currency' => 'EUR'
+        'currency' => 'EUR',
+        'isRecurring' => true
     )
 
     assert_equal('trn_d12209838b', transaction.id)
@@ -664,7 +665,8 @@ class TransactionTest < Minitest::Test
         'payment' => payment,
         'amount' => 1500,
         'currency' => 'EUR',
-        'redirectUrls' => redirectUrls
+        'redirectUrls' => redirectUrls,
+        'isRecurring' => false
     )
 
     assert_equal('trn_d12209838b', transaction.id)
@@ -761,7 +763,8 @@ class TransactionTest < Minitest::Test
         'payment' => payment,
         'amount' => 1500,
         'currency' => 'EUR',
-        'redirectUrls' => redirectUrls
+        'redirectUrls' => redirectUrls,
+        'initialTransactionId' => 'trn_d12209838b'
     )
 
     assert_equal('trn_d12209838b', transaction.id)
