@@ -1,7 +1,7 @@
 PATH
   remote: ../ap_ruby_sdk/
   specs:
-    ap_ruby_sdk (0.1.0)
+    ap_ruby_sdk (0.1.1)
       oj
       rest-client (~> 1.8)
       webmock
@@ -61,7 +61,7 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
-    domain_name (0.5.20160310)
+    domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -162,7 +162,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    webmock (2.0.3)
+    webmock (2.1.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
