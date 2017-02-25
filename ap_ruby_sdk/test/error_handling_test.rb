@@ -2,16 +2,28 @@ require 'test_helper'
 
 class ErrorHandlingTest < Minitest::Test
 
-  def test_no_api_key_error
-    ApRubySdk.api_key = nil
+  def test_no_api_secret_key_error
+    ApRubySdk.api_secret_key = nil
 
     error = assert_raises ApRubySdk::AuthenticationError do
       ApRubySdk::Customer.retrieve('123')
     end
 
-    assert_equal(error.message, 'No API key provided.')
+    assert_equal(error.message, 'No Secret API key provided.')
 
-    ApRubySdk.api_key = 'test'
+    ApRubySdk.api_secret_key = 'test'
+  end
+
+  def test_no_api_public_key_error
+    ApRubySdk.api_public_key = nil
+
+    error = assert_raises ApRubySdk::AuthenticationError do
+      ApRubySdk::Customer.retrieve('123')
+    end
+
+    assert_equal(error.message, 'No Public API key provided.')
+
+    ApRubySdk.api_public_key = 'public_test'
   end
 
   def test_payment_error_void_not_supported
@@ -259,7 +271,7 @@ class ErrorHandlingTest < Minitest::Test
     assert_equal(400, error.http_status)
   end
 
-  def test_invalid_api_keys
+  def test_invalid_api_secret_key
     stub_request(:get, 'https://api.alternativepayments.com/api/customers/123').
         with(
             headers: {
@@ -274,7 +286,7 @@ class ErrorHandlingTest < Minitest::Test
                                           'Type' => 'invalid_parameter_error',
                                           'Code' => 'invalid_api_keys',
                                           'StatusCode' => '401',
-                                          'Message' => "Invalid API key #{Base64.encode64(ApRubySdk.api_key)}",
+                                          'Message' => "Invalid API key #{Base64.encode64(ApRubySdk.api_secret_key)}",
                                           'Param' => 'api_key'
                                       }))
 
@@ -283,7 +295,7 @@ class ErrorHandlingTest < Minitest::Test
     end
 
     assert_equal('invalid_api_keys', error.error_code)
-    assert_equal("Invalid API key #{Base64.encode64(ApRubySdk.api_key)}", error.message)
+    assert_equal("Invalid API key #{Base64.encode64(ApRubySdk.api_secret_key)}", error.message)
     assert_equal('api_key', error.parameter)
     assert_equal(401, error.http_status)
   end

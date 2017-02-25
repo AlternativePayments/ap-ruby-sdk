@@ -70,7 +70,9 @@ module ApRubySdk
           '/plans' => Plan,
           '/refunds' => Refund,
           '/subscriptions' => Subscription,
-          '/preauthorizations' => Preauthorization
+          '/preauthorizations' => Preauthorization,
+          '/websites' => Website,
+          '/paymentoptions' => PaymentOption
       }
     end
   end
