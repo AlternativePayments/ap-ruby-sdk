@@ -9,7 +9,9 @@
 
     - Clone repo
     - Inside sample-application folder run +bundle install+
-    - Inside folder +sample-application/config/initializers+ add +ap_ruby_sdk.rb+ file where you will set API key provided from you account
-        eg. +ApRubySdk.api_key = 'Test/Live key provided in your Alternative Payments account'+
+    - Inside folder +sample-application/config/initializers+ add +ap_ruby_sdk.rb+ file where you will set secret API key provided from your account
+        eg. +ApRubySdk.api_secret_key = 'Test/Live secret key provided in your Alternative Payments account'+
+    - Inside same file add public API key provided from your account
+        eg. +ApRubySdk.api_public_key = 'Test/Live public key provided in your Alternative Payments account'+
     - Start Ruby On Rails server by runing +rails server+ from inside folder +sample-applicati+
     - If your setup is default one then access application on +http://localhost:3000+

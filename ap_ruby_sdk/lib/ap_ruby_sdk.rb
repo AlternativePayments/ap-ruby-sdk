@@ -15,6 +15,7 @@ require 'ap_ruby_sdk/errors/payment_error'
 
 # AP operations
 require 'ap_ruby_sdk/api_operations/create'
+require 'ap_ruby_sdk/api_operations/create_phone_verification'
 require 'ap_ruby_sdk/api_operations/list'
 require 'ap_ruby_sdk/api_operations/retrieve'
 
@@ -36,17 +37,23 @@ require 'ap_ruby_sdk/refund_reason'
 require 'ap_ruby_sdk/subscription'
 require 'ap_ruby_sdk/pagination'
 require 'ap_ruby_sdk/preauthorization'
+require 'ap_ruby_sdk/website'
+require 'ap_ruby_sdk/payment_option'
 
 module ApRubySdk
   @api_base = 'https://api.alternativepayments.com/api'
 
   class << self
-    attr_accessor :api_key, :api_base
+    attr_accessor :api_secret_key, :api_base, :api_public_key
   end
 
-  def self.request(method, url, api_key, params={}, headers={})
-    unless api_key ||= @api_key
-      raise AuthenticationError.new('No API key provided.')
+  def self.request(method, url, api_secret_key, api_public_key, params={}, headers={})
+    unless api_secret_key ||= @api_secret_key
+      raise AuthenticationError.new('No Secret API key provided.')
+    end
+
+    unless api_public_key ||= @api_public_key
+      raise AuthenticationError.new('No Public API key provided.')
     end
 
     url = api_url(url)
@@ -65,7 +72,7 @@ module ApRubySdk
     end
 
     request_opts = {
-        :headers => request_headers(api_key).update(headers),
+        :headers => request_headers(api_secret_key).update(headers),
         :open_timeout => 30,
         :timeout => 80,
         :method => method,
@@ -96,10 +103,10 @@ module ApRubySdk
         map { |k, v| "#{k}=#{Util.url_encode(v)}" }.join('&')
   end
 
-  def self.request_headers(api_key)
+  def self.request_headers(api_secret_key)
     {
         :user_agent => "AlternativePayments Ruby SDK v#{ApRubySdk::VERSION}",
-        :authorization => "Basic #{Base64.strict_encode64(api_key)}",
+        :authorization => "Basic #{Base64.strict_encode64(api_secret_key)}",
         :content_type => :json
     }
   end

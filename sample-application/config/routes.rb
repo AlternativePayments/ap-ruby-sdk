@@ -18,4 +18,8 @@ Rails.application.routes.draw do
 
   resources :subscription
   get :subscriptions, to: 'subscription#subscriptions'
+
+  resources :website
+  get :create_phone_verification, to: 'website#create_phone_verification'
+  get :check_phone_verification_turned_on, to: 'website#check_phone_verification_turned_on'
 end
