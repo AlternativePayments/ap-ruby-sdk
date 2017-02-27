@@ -1,7 +1,7 @@
 class WebsiteController < ApplicationController
 
   def create_phone_verification
-    @phone_verification = ApRubySdk::PhoneVerification.create(
+    @phone_verification = ApRubySdk::PhoneVerification.create_phone_verification(
         {
             'phone' => '+15555555555'
         }
@@ -17,7 +17,7 @@ class WebsiteController < ApplicationController
 
     if is_phone_verification_on.hasSmsVerification
 
-      phone_verification = ApRubySdk::PhoneVerification.create(
+      phone_verification = ApRubySdk::PhoneVerification.create_phone_verification(
           {
               'phone' => '+15555555555'
           }
