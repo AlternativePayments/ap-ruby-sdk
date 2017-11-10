@@ -10,7 +10,13 @@ module ApRubySdk
                   :paymentId,
                   :plan,
                   :planId,
-                  :status
+                  :amount,
+                  :isConversionRateFixed,
+                  :quantity,
+                  :currentBillingCycle,
+                  :ipAddress,
+                  :status,
+                  :phoneverification
 
     def customer=(customer)
       @customer = Customer.new(customer)

@@ -25,19 +25,27 @@ class PlanTest < Minitest::Test
                                           'description' => 'Test plan',
                                           'amount' => 1000,
                                           'currency' => 'EUR',
-                                          'period' => ApRubySdk::Period::DAY,
-                                          'interval' => 5,
+                                          'intervalUnit' => ApRubySdk::Period::DAY,
+                                          'intervalCount' => 1,
+                                          'billingCycles' => 12,
+                                          'trialPeriod' => 7,
+                                          'isConversionRateFixed' => true,
+                                          'ipAddress' => '91.218.229.20',
                                           'created' => '2016-03-24T15:19:10.7800694Z'
                                       },
                                       :headers => {}))
 
     plan = ApRubySdk::Plan.create(
-        'interval' => 5,
-        'period' => ApRubySdk::Period::DAY,
+        'intervalCount' => 1,
+        'billingCycles' => 12,
+        'intervalUnit' => ApRubySdk::Period::DAY,
         'amount' => 1000,
         'currency' => 'EUR',
         'name' => 'Test',
-        'description' => 'Test plan'
+        'description' => 'Test plan',
+        'trialPeriod' => 7,
+        'isConversionRateFixed' => true,
+        'ipAddress' => '91.218.229.20'
     )
 
     assert_equal('pln_a27286a', plan.id)
@@ -46,8 +54,12 @@ class PlanTest < Minitest::Test
     assert_equal('Test plan', plan.description)
     assert_equal(1000, plan.amount)
     assert_equal('EUR', plan.currency)
-    assert_equal(5, plan.interval)
-    assert_equal(ApRubySdk::Period::DAY, plan.period)
+    assert_equal(1, plan.intervalCount)
+    assert_equal(12, plan.billingCycles)
+    assert_equal(7, plan.trialPeriod)
+    assert_equal(true, plan.isConversionRateFixed)
+    assert_equal('91.218.229.20', plan.ipAddress)
+    assert_equal(ApRubySdk::Period::DAY, plan.intervalUnit)
     assert_equal('2016-03-24T15:19:10.7800694Z', plan.created)
   end
 
@@ -73,8 +85,12 @@ class PlanTest < Minitest::Test
                                                   'description' => 'Test plan',
                                                   'amount' => 1000,
                                                   'currency' => 'EUR',
-                                                  'period' => ApRubySdk::Period::DAY,
-                                                  'interval' => 5,
+                                                  'intervalUnit' => ApRubySdk::Period::DAY,
+                                                  'intervalCount' => 1,
+                                                  'billingCycles' => 12,
+                                                  'trialPeriod' => 7,
+                                                  'isConversionRateFixed' => true,
+                                                  'ipAddress' => '91.218.229.20',
                                                   'created' => '2016-03-24T15:19:10.7800694Z'
                                               },
                                               {
@@ -84,8 +100,12 @@ class PlanTest < Minitest::Test
                                                   'description' => 'Test2 plan',
                                                   'amount' => 2000,
                                                   'currency' => 'EUR',
-                                                  'period' => ApRubySdk::Period::DAY,
-                                                  'interval' => 6,
+                                                  'intervalUnit' => ApRubySdk::Period::DAY,
+                                                  'intervalCount' => 1,
+                                                  'billingCycles' => 12,
+                                                  'trialPeriod' => 7,
+                                                  'isConversionRateFixed' => true,
+                                                  'ipAddress' => '91.218.229.20',
                                                   'created' => '2016-03-24T15:19:10.7800694Z'
                                               }
                                           ]
@@ -104,8 +124,12 @@ class PlanTest < Minitest::Test
     assert_equal('Test plan', first_plan.description)
     assert_equal(1000, first_plan.amount)
     assert_equal('EUR', first_plan.currency)
-    assert_equal(5, first_plan.interval)
-    assert_equal(ApRubySdk::Period::DAY, first_plan.period)
+    assert_equal(1, first_plan.intervalCount)
+    assert_equal(12, first_plan.billingCycles)
+    assert_equal(7, first_plan.trialPeriod)
+    assert_equal(true, first_plan.isConversionRateFixed)
+    assert_equal('91.218.229.20', first_plan.ipAddress)
+    assert_equal(ApRubySdk::Period::DAY, first_plan.intervalUnit)
     assert_equal('2016-03-24T15:19:10.7800694Z', first_plan.created)
 
     second_plan = plans.items[1]
@@ -116,8 +140,12 @@ class PlanTest < Minitest::Test
     assert_equal('Test2 plan', second_plan.description)
     assert_equal(2000, second_plan.amount)
     assert_equal('EUR', second_plan.currency)
-    assert_equal(6, second_plan.interval)
-    assert_equal(ApRubySdk::Period::DAY, second_plan.period)
+    assert_equal(1, second_plan.intervalCount)
+    assert_equal(12, second_plan.billingCycles)
+    assert_equal(7, second_plan.trialPeriod)
+    assert_equal(true, second_plan.isConversionRateFixed)
+    assert_equal('91.218.229.20', second_plan.ipAddress)
+    assert_equal(ApRubySdk::Period::DAY, second_plan.intervalUnit)
     assert_equal('2016-03-24T15:19:10.7800694Z', second_plan.created)
   end
 
@@ -139,8 +167,12 @@ class PlanTest < Minitest::Test
                                           'description' => 'Test plan',
                                           'amount' => 1000,
                                           'currency' => 'EUR',
-                                          'period' => ApRubySdk::Period::DAY,
-                                          'interval' => 5,
+                                          'intervalUnit' => ApRubySdk::Period::DAY,
+                                          'intervalCount' => 5,
+                                          'billingCycles' => 12,
+                                          'trialPeriod' => 7,
+                                          'isConversionRateFixed' => true,
+                                          'ipAddress' => '91.218.229.20',
                                           'created' => '2016-03-24T15:19:10.7800694Z'
                                       },
                                       :headers => {}))
@@ -153,8 +185,12 @@ class PlanTest < Minitest::Test
     assert_equal('Test plan', plan.description)
     assert_equal(1000, plan.amount)
     assert_equal('EUR', plan.currency)
-    assert_equal(5, plan.interval)
-    assert_equal(ApRubySdk::Period::DAY, plan.period)
+    assert_equal(5, plan.intervalCount)
+    assert_equal(12, plan.billingCycles)
+    assert_equal(7, plan.trialPeriod)
+    assert_equal(true, plan.isConversionRateFixed)
+    assert_equal('91.218.229.20', plan.ipAddress)
+    assert_equal(ApRubySdk::Period::DAY, plan.intervalUnit)
     assert_equal('2016-03-24T15:19:10.7800694Z', plan.created)
   end
 
@@ -178,8 +214,12 @@ class PlanTest < Minitest::Test
                                                   'description' => 'Test plan',
                                                   'amount' => 1000,
                                                   'currency' => 'EUR',
-                                                  'period' => ApRubySdk::Period::DAY,
-                                                  'interval' => 5,
+                                                  'intervalUnit' => ApRubySdk::Period::DAY,
+                                                  'intervalCount' => 1,
+                                                  'billingCycles' => 12,
+                                                  'trialPeriod' => 7,
+                                                  'isConversionRateFixed' => true,
+                                                  'ipAddress' => '91.218.229.20',
                                                   'created' => '2016-03-24T15:19:10.7800694Z'
                                               },
                                               {
@@ -189,8 +229,12 @@ class PlanTest < Minitest::Test
                                                   'description' => 'Test2 plan',
                                                   'amount' => 2000,
                                                   'currency' => 'EUR',
-                                                  'period' => ApRubySdk::Period::DAY,
-                                                  'interval' => 6,
+                                                  'intervalUnit' => ApRubySdk::Period::DAY,
+                                                  'intervalCount' => 1,
+                                                  'billingCycles' => 12,
+                                                  'trialPeriod' => 7,
+                                                  'isConversionRateFixed' => true,
+                                                  'ipAddress' => '91.218.229.20',
                                                   'created' => '2016-03-24T15:19:10.7800694Z'
                                               },
                                               {
@@ -200,8 +244,12 @@ class PlanTest < Minitest::Test
                                                   'description' => 'Test3 plan',
                                                   'amount' => 3000,
                                                   'currency' => 'EUR',
-                                                  'period' => ApRubySdk::Period::DAY,
-                                                  'interval' => 7,
+                                                  'intervalUnit' => ApRubySdk::Period::DAY,
+                                                  'intervalCount' => 1,
+                                                  'billingCycles' => 12,
+                                                  'trialPeriod' => 7,
+                                                  'isConversionRateFixed' => true,
+                                                  'ipAddress' => '91.218.229.20',
                                                   'created' => '2016-03-24T15:19:10.7800694Z'
                                               }
                                           ]
@@ -220,8 +268,12 @@ class PlanTest < Minitest::Test
     assert_equal('Test plan', first_plan.description)
     assert_equal(1000, first_plan.amount)
     assert_equal('EUR', first_plan.currency)
-    assert_equal(5, first_plan.interval)
-    assert_equal(ApRubySdk::Period::DAY, first_plan.period)
+    assert_equal(1, first_plan.intervalCount)
+    assert_equal(12, first_plan.billingCycles)
+    assert_equal(7, first_plan.trialPeriod)
+    assert_equal(true, first_plan.isConversionRateFixed)
+    assert_equal('91.218.229.20', first_plan.ipAddress)
+    assert_equal(ApRubySdk::Period::DAY, first_plan.intervalUnit)
     assert_equal('2016-03-24T15:19:10.7800694Z', first_plan.created)
 
     second_plan = plans.items[1]
@@ -232,8 +284,12 @@ class PlanTest < Minitest::Test
     assert_equal('Test2 plan', second_plan.description)
     assert_equal(2000, second_plan.amount)
     assert_equal('EUR', second_plan.currency)
-    assert_equal(6, second_plan.interval)
-    assert_equal(ApRubySdk::Period::DAY, second_plan.period)
+    assert_equal(1, second_plan.intervalCount)
+    assert_equal(12, second_plan.billingCycles)
+    assert_equal(7, second_plan.trialPeriod)
+    assert_equal(true, second_plan.isConversionRateFixed)
+    assert_equal('91.218.229.20', second_plan.ipAddress)
+    assert_equal(ApRubySdk::Period::DAY, second_plan.intervalUnit)
     assert_equal('2016-03-24T15:19:10.7800694Z', second_plan.created)
 
     third_plan = plans.items[2]
@@ -244,8 +300,12 @@ class PlanTest < Minitest::Test
     assert_equal('Test3 plan', third_plan.description)
     assert_equal(3000, third_plan.amount)
     assert_equal('EUR', third_plan.currency)
-    assert_equal(7, third_plan.interval)
-    assert_equal(ApRubySdk::Period::DAY, third_plan.period)
+    assert_equal(1, third_plan.intervalCount)
+    assert_equal(12, third_plan.billingCycles)
+    assert_equal(7, third_plan.trialPeriod)
+    assert_equal(true, third_plan.isConversionRateFixed)
+    assert_equal('91.218.229.20', third_plan.ipAddress)
+    assert_equal(ApRubySdk::Period::DAY, third_plan.intervalUnit)
     assert_equal('2016-03-24T15:19:10.7800694Z', third_plan.created)
   end
 end

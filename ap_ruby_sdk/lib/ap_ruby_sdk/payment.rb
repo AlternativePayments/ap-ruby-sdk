@@ -11,7 +11,8 @@ module ApRubySdk
                   :expirationYear,
                   :expirationMonth,
                   :creditCardType,
-                  :bic
+                  :bic,
+                  :pinCode
 
   end
 end
