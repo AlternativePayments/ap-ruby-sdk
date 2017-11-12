@@ -31,8 +31,12 @@ class SubscriptionTest < Minitest::Test
                                               'description' => 'Test plan',
                                               'amount' => 1000,
                                               'currency' => 'EUR',
-                                              'period' => 'Day',
-                                              'interval' => 5,
+                                              'intervalUnit' => ApRubySdk::Period::DAY,
+                                              'intervalCount' => 1,
+                                              'billingCycles' => 12,
+                                              'trialPeriod' => 7,
+                                              'isConversionRateFixed' => true,
+                                              'ipAddress' => '91.218.229.20',
                                               'created' => '2016-03-24T15:19:10.7800694Z'
                                           },
                                           'customerId' => 'cus_70ac08b06b4949bfb',
@@ -53,6 +57,11 @@ class SubscriptionTest < Minitest::Test
                                               'paymentOption' => 'SEPA',
                                               'iban' => 'DE71XXXXX3330'
                                           },
+                                          'amount' => 0,
+                                          'isConversionRateFixed' => false,
+                                          'quantity' => 2,
+                                          'currentBillingCycle' => 2,
+                                          'ipAddress' => '91.218.229.20',
                                           'status' => 'InRecur',
                                           'created' => '2016-03-24T15:19:10.7800694Z'
                                       },
@@ -72,6 +81,11 @@ class SubscriptionTest < Minitest::Test
     assert_equal('pay_a7cc4479772c4cdc8', subscription.paymentId)
     assert_equal('pln_a27286a', subscription.plan.id)
     assert_equal('pln_a27286a', subscription.planId)
+    assert_equal(0, subscription.amount)
+    assert_equal(false, subscription.isConversionRateFixed)
+    assert_equal(2, subscription.quantity)
+    assert_equal(2, subscription.currentBillingCycle)
+    assert_equal('91.218.229.20', subscription.ipAddress)
     assert_equal('InRecur', subscription.status)
     assert_equal('2016-03-24T15:19:10.7800694Z', subscription.created)
   end
@@ -102,8 +116,8 @@ class SubscriptionTest < Minitest::Test
                         'description' => 'Test plan',
                         'amount' => 1000,
                         'currency' => 'EUR',
-                        'period' => 'Day',
-                        'interval' => 5,
+                        'intervalUnit' => ApRubySdk::Period::DAY,
+                        'intervalCount' => 5,
                         'created' => '2016-03-24T15:19:10.7800694Z'
                     },
                     'customerId' => 'cus_70ac08b06b4949bfb',
@@ -138,8 +152,8 @@ class SubscriptionTest < Minitest::Test
                         'description' => 'Test plan',
                         'amount' => 1000,
                         'currency' => 'EUR',
-                        'period' => 'Day',
-                        'interval' => 5,
+                        'intervalUnit' => ApRubySdk::Period::DAY,
+                        'intervalCount' => 5,
                         'created' => '2016-03-24T15:19:10.7800694Z'
                     },
                     'customerId' => 'cus_70ac08b06b4949bfc',
@@ -206,8 +220,8 @@ class SubscriptionTest < Minitest::Test
                 'description' => 'Test plan',
                 'amount' => 1000,
                 'currency' => 'EUR',
-                'period' => 'Day',
-                'interval' => 5,
+                'intervalUnit' => ApRubySdk::Period::DAY,
+                'intervalCount' => 5,
                 'created' => '2016-03-24T15:19:10.7800694Z'
             },
             'customerId' => 'cus_70ac08b06b4949bfb',
@@ -228,6 +242,11 @@ class SubscriptionTest < Minitest::Test
                 'paymentOption' => 'SEPA',
                 'iban' => 'DE71XXXXX3330'
             },
+            'amount' => 0,
+            'isConversionRateFixed' => false,
+            'quantity' => 2,
+            'currentBillingCycle' => 2,
+            'ipAddress' => '91.218.229.20',
             'status' => 'InRecur',
             'created' => '2016-03-24T15:19:10.7800694Z'
         },
@@ -243,6 +262,11 @@ class SubscriptionTest < Minitest::Test
     assert_equal('pay_a7cc4479772c4cdc8', subscription.paymentId)
     assert_equal('pln_a27286a', subscription.plan.id)
     assert_equal('pln_a27286a', subscription.planId)
+    assert_equal(0, subscription.amount)
+    assert_equal(false, subscription.isConversionRateFixed)
+    assert_equal(2, subscription.quantity)
+    assert_equal(2, subscription.currentBillingCycle)
+    assert_equal('91.218.229.20', subscription.ipAddress)
     assert_equal('InRecur', subscription.status)
     assert_equal('2016-03-24T15:19:10.7800694Z', subscription.created)
   end

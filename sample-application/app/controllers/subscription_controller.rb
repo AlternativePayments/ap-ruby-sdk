@@ -11,12 +11,16 @@ class SubscriptionController < ApplicationController
   def create
     plan = ApRubySdk::Plan.create(
         {
-            'interval' => 1,
-            'period' => ApRubySdk::Period::DAY,
+            'intervalCount' => 1,
+            'intervalUnit' => ApRubySdk::Period::DAY,
             'amount' => params[:plan_amount],
             'currency' => 'EUR',
             'name' => params[:plan_name],
-            'description' => 'Test plan'
+            'description' => 'Test plan',
+            'billingCycles' => 12,
+            'isConversionRateFixed' => true,
+            'ipAddress' => '91.218.229.20',
+            'trialPeriod' => 7
         }
     )
 
@@ -30,7 +34,19 @@ class SubscriptionController < ApplicationController
     payment = ApRubySdk::Payment.new(
         'paymentOption' => 'SEPA',
         'holder' => 'John Doe',
-        'iban' => 'BE88271080782541'
+        'iban' => 'DE89370400440532013000'
+    )
+
+    phoneverification = ApRubySdk::PhoneVerification.create(
+        'phone' => '+15555555555',
+        'key' => ApRubySdk.api_public_key
+    )
+
+    transaction_phoneverification = ApRubySdk::PhoneVerification.new(
+        'phone' => phoneverification.phone,
+        'key' => ApRubySdk.api_public_key,
+        'token' => phoneverification.token,
+        'pin' => 1234
     )
 
     transaction = ApRubySdk::Transaction.create(
@@ -40,14 +56,18 @@ class SubscriptionController < ApplicationController
         'currency' => 'EUR',
         'description' => 'test sepa php sdk',
         'merchantPassThruData' => 'test_sepa_123',
-        'iPAddress' => '127.0.0.1'
+        'ipAddress' => '127.0.0.1',
+        'phoneverification' => transaction_phoneverification
     )
 
     subscription = ApRubySdk::Subscription.create(
         {
+            'quantity' => 2,
+            'ipAddress' => '91.218.229.20',
             'paymentId' => transaction.payment.id,
             'customerId' => transaction.customer.id,
-            'planId' => plan.id
+            'planId' => plan.id,
+            'phoneverification' => transaction_phoneverification
         }
     )
 

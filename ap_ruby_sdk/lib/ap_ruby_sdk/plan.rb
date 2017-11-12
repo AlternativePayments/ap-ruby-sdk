@@ -4,12 +4,18 @@ module ApRubySdk
     include ApRubySdk::ApiOperations::Retrieve
     include ApRubySdk::ApiOperations::List
 
-    attr_accessor :interval,
-                  :period,
+    attr_accessor :name,
+                  :description,
                   :amount,
                   :currency,
-                  :name,
-                  :description
+                  :intervalUnit,
+                  :intervalCount,
+                  :billingCycles,
+                  :isConversionRateFixed,
+                  :ipAddress,
+                  :trialPeriod,
+                  :cancelSubscriptions
+
 
     def self.url
       '/plans'

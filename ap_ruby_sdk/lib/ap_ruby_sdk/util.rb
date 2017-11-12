@@ -65,6 +65,7 @@ module ApRubySdk
       @object_classes ||= {
           '/customers' => Customer,
           '/transactions' => Transaction,
+          '/transactions/hosted' => HostedTransaction,
           '/phoneverification' => PhoneVerification,
           '/voids' => Void,
           '/plans' => Plan,

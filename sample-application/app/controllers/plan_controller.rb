@@ -11,12 +11,16 @@ class PlanController < ApplicationController
   def create
     plan = ApRubySdk::Plan.create(
         {
-            'interval' => 1,
-            'period' => ApRubySdk::Period::DAY,
+            'intervalCount' => 1,
+            'intervalUnit' => ApRubySdk::Period::DAY,
             'amount' => params[:plan_amount],
             'currency' => 'EUR',
             'name' => params[:plan_name],
-            'description' => 'Test plan'
+            'description' => 'Test plan',
+            'billingCycles' => 12,
+            'isConversionRateFixed' => true,
+            'ipAddress' => '91.218.229.20',
+            'trialPeriod' => 7
         }
     )
 
