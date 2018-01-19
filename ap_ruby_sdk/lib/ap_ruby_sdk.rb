@@ -42,7 +42,6 @@ require 'ap_ruby_sdk/website'
 require 'ap_ruby_sdk/payment_option'
 
 module ApRubySdk
-  @api_base = 'https://api.alternativepayments.com/api'
 
   class << self
     attr_accessor :api_secret_key, :api_base, :api_public_key
